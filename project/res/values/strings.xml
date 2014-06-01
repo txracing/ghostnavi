@@ -4,5 +4,10 @@
     <string name="app_name">GhostNavi</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="wheretogo">に行きます</string>
+    <string name="choosespeed">どれぐらいの速さで行く？</string>
+    <string name="inmanyminutes">かけたい時間を教えて！</string>
+    <string name="navistart">ナビを開始します！</string>
+    <string name="okletsgo">OK！行きましょう！</string>
 
 </resources>
