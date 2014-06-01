@@ -9,19 +9,25 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.os.Build;
 
 public class MainActivity extends Activity {
+	
+	private int layoutPhase = phase.navistart;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.fragment_main);
 
+		/*
 		if (savedInstanceState == null) {
+			placeFolder = new PlaceholderFragment();
 			getFragmentManager().beginTransaction()
-					.add(R.id.container, new PlaceholderFragment()).commit();
+					.add(R.id.container, placeFolder).commit();
 		}
+		*/
 	}
 
 	@Override
@@ -46,7 +52,6 @@ public class MainActivity extends Activity {
 
 	/**
 	 * A placeholder fragment containing a simple view.
-	 */
 	public static class PlaceholderFragment extends Fragment {
 
 		public PlaceholderFragment() {
@@ -60,5 +65,24 @@ public class MainActivity extends Activity {
 			return rootView;
 		}
 	}
+	 */
 
+	public void clickNext(View view){
+		int[] layoutList = new int[]{
+				R.layout.navistart,
+				R.layout.wheretogo,
+				R.layout.choosespeed,
+				R.layout.inmanyminutes,
+				R.layout.okletsgo
+		};
+		if( layoutPhase < phase.okletsgo ){
+			layoutPhase++;
+		}else{
+			layoutPhase = phase.navistart;
+		}
+		int layout = layoutList[layoutPhase];
+		LinearLayout main = (LinearLayout)findViewById(R.id.main);
+		main.removeAllViews();
+		main.addView(getLayoutInflater().inflate(layout, null));
+	}
 }
